@@ -48,7 +48,7 @@ me.save().then(()=>{
 }).catch((error)=>{
   console.log("Error", error);
 })
-res.send(me)
+
 
 
 
