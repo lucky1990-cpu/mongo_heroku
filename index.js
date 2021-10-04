@@ -55,7 +55,7 @@ me.save().then(()=>{
 app.get('/', async(req, res)=>{
 
     try{
-        const userDetails = await UserDetails.find({})
+        const userDetails = await user.find({})
         console.log(userDetails)
         res.send(userDetails)
       }
