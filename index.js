@@ -34,24 +34,34 @@ const user =  mongoose.model('Users',{
 
 // Create Insitance of DB
 
+const me = new user( 
+    {
+        name:'sohan',
+        age:30,
+        Email:'Lucky@gmail.com',
+        password:'Lucky1213'
+
+})
+
+me.save().then(()=>{
+    console.log(me)
+}).catch((error)=>{
+  console.log("Error", error);
+})
+res.send(me)
 
 
-app.get('/',(req, res)=>{
-    const me = new user( 
-        {
-            name:'Lucky',
-            age:30,
-            Email:'Lucky@gmail.com',
-            password:'Lucky1213'
-    
-    })
-    
-    me.save().then(()=>{
-        console.log(me)
-    }).catch((error)=>{
-      console.log("Error", error);
-    })
-    res.send(me)
+
+app.get('/', async(req, res)=>{
+
+    try{
+        const userDetails = await UserDetails.find({})
+        console.log(userDetails)
+        res.send(userDetails)
+      }
+      catch(e){
+      }
+ 
 
 })
 
